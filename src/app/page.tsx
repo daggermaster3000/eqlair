@@ -7,6 +7,10 @@ import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import TextTrail from '@/components/TextTrail';
 import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import HighlightOnScroll from '@/components/ScrollHighlight';
+import HeroSection from "@/components/HeroSection";
+import OffersSection from "@/components/OffersSection";
+import ProjectsSection from "@/components/ProjectsSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
 
 
 export default function Home() {
@@ -49,229 +53,20 @@ export default function Home() {
         <NavbarDemo />
 
 
-        {/* Hero Section */}
-        <section className="flex flex-col justify-center items-start h-screen px-12 lg:px-24 relative bg-white/80 text-gray-900 font-sans">
-          {/* Hero Title */}
-
-          <h1 className="text-5xl sm:text-7xl font-extrabold mb-4 tracking-tight">
-            EQlair<span className="text-[#58a6ff]">.</span>
-          </h1>
-
-          {/* Subtitle with minimalist style */}
-          <BlurText
-            text="Design web simple, rapide et efficace"
-            delay={150}
-            animateBy="words"
-            direction="top"
-            className="text-2xl mb-6 max-w-lg leading-snug"
-          />
-
-          {/* Divider line */}
-          <div className="w-20 h-1 bg-[#58a6ff] mb-8"></div>
-
-          {/* Call to Action */}
-          <button
-            className="border border-[#58a6ff] text-[#58a6ff] rounded-sm px-6 py-3 font-medium text-lg hover:bg-[#58a6ff] hover:text-white transition-colors duration-300"
-            onClick={() => window.scrollBy({ top: window.innerHeight, behavior: "smooth" })}
-          >
-            Découvrir
-          </button>
-        </section>
+        <HeroSection></HeroSection>
 
 
 
 
-        {/* Additional sections */}
-        <section
-          id="offres"
-          className="flex h-screen flex-col  gap-5 px-6 py-40 bg-neutral-900 text-white"
-        >
-          <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
-            <sup className="text-base align-super">1</sup>
-            <span>Nos offres de conception</span>
-          </h2>
 
-          <div className="grid md:grid-cols-3 py-10 gap-12 max-w-6xl w-full">
-            {/* Offer 1 */}
-            <div className="flex flex-col border-t border-neutral-700 pt-6">
-              <span className="text-sm text-neutral-500 mb-2">01</span>
-              <h3 className="text-2xl font-semibold mb-4">Pack Dash</h3>
-              <p className="text-neutral-400 mb-6">
-                Site vitrine rapide, clair et efficace
-                — parfait pour lancer votre
-                activité ou présenter vos services en toute simplicité.
-              </p>
-
-              <ul className="text-neutral-300 text-sm space-y-1 mb-8">
-                <li>• 1 à 3 pages</li>
-                <li>• Design responsive</li>
-                <li>• Livraison en 7 jours</li>
-              </ul>
-              <a
-                href="#contact"
-                className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-              >
-                Demander un devis →
-              </a>
-            </div>
-
-            {/* Offer 2 */}
-            <div className="flex flex-col border-t border-neutral-700 pt-6">
-              <span className="text-sm text-neutral-500 mb-2">02</span>
-              <h3 className="text-2xl font-semibold mb-4">Pack Lightning</h3>
-              <p className="text-neutral-400 mb-6">
-                Site professionnel optimisé avec animations et intégrations — idéal
-                pour se démarquer et attirer vos clients.
-              </p>
-              <ul className="text-neutral-300 text-sm space-y-1 mb-8">
-                <li>• 4 à 6 pages</li>
-                <li>• Animations fluides</li>
-                <li>• Optimisation SEO</li>
-              </ul>
-              <a
-                href="#contact"
-                className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-              >
-                Demander un devis →
-              </a>
-            </div>
-
-            {/* Offer 3 */}
-            <div className="flex flex-col border-t border-neutral-700 pt-6">
-              <span className="text-sm text-neutral-500 mb-2">03</span>
-              <h3 className="text-2xl font-semibold mb-4">Pack Storm</h3>
-              <p className="text-neutral-400 mb-6">
-                Expérience web sur mesure — fonctionnalités avancées,
-                design haut de gamme et accompagnement personnalisé.
-              </p>
-              <ul className="text-neutral-300 text-sm space-y-1 mb-8">
-                <li>• Pages illimitées</li>
-                <li>• Fonctionnalités sur mesure</li>
-                <li>• Support prioritaire</li>
-              </ul>
-              <a
-                href="#contact"
-                className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-              >
-                Demander un devis →
-              </a>
-            </div>
-          </div>
-        </section>
-        <section
-          id="projects"
-          className="py-24 h-screen px-8 lg:px-24 bg-white text-gray-900 font-sans"
-        >
-          {/* Section Title */}
-          <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
-            <sup className="text-base align-super">2</sup>
-            <span>Projects</span>
-          </h2>
-
-          {/* Divider line */}
-          <div className="w-16 h-1 bg-[#58a6ff] mb-6"></div>
-
-          {/* Subtitle */}
-          <p className="text-lg opacity-80 max-w-xl leading-relaxed mb-12">
-            Here are some of the websites I’ve designed and developed.
-          </p>
-
-          {/* Projects Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Example Project */}
-            <a
-              href="https://example1.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-6 border border-gray-200 rounded-sm hover:border-[#58a6ff] transition"
-            >
-              <h3 className="text-xl font-semibold mb-2">Project One</h3>
-              <p className="text-sm opacity-80">
-                Brief description of this project and what I contributed.
-              </p>
-            </a>
-
-            <a
-              href="https://example2.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-6 border border-gray-200 rounded-sm hover:border-[#58a6ff] transition"
-            >
-              <h3 className="text-xl font-semibold mb-2">Project Two</h3>
-              <p className="text-sm opacity-80">
-                Brief description of this project and what I contributed.
-              </p>
-            </a>
-
-            <a
-              href="https://example3.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="p-6 border border-gray-200 rounded-sm hover:border-[#58a6ff] transition"
-            >
-              <h3 className="text-xl font-semibold mb-2">Project Three</h3>
-              <p className="text-sm opacity-80">
-                Brief description of this project and what I contributed.
-              </p>
-            </a>
-
-            {/* Add more projects as needed */}
-          </div>
-        </section>
-
-        <section
-          id="testimonials"
-          className="py-24 h-screen px-8 lg:px-24 bg-white text-gray-900 font-sans"
-        >
-          {/* Section Title */}
-          <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
-            <sup className="text-base align-super">3</sup>
-            <span>Testimonials</span>
-          </h2>
-
-          {/* Divider line */}
-          <div className="w-16 h-1 bg-[#58a6ff] mb-6"></div>
-
-          {/* Subtitle */}
-          <p className="text-lg opacity-80 max-w-xl leading-relaxed mb-12">
-            Hear what my clients have to say about my work.
-          </p>
-
-          {/* Testimonials Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Example Testimonial */}
-            <div className="p-6 border-l-4 border-[#58a6ff] bg-gray-50 rounded-sm">
-              <p className="text-sm opacity-90 mb-4">
-                "Quillan delivered exactly what we needed—clean, modern, and fast. Highly recommended!"
-              </p>
-              <h4 className="text-base font-semibold">Jane Doe</h4>
-              <p className="text-sm opacity-70">CEO, Example Company</p>
-            </div>
-
-            <div className="p-6 border-l-4 border-[#58a6ff] bg-gray-50 rounded-sm">
-              <p className="text-sm opacity-90 mb-4">
-                "Professional, precise, and creative. Our website never looked better."
-              </p>
-              <h4 className="text-base font-semibold">John Smith</h4>
-              <p className="text-sm opacity-70">Marketing Lead, Another Company</p>
-            </div>
-
-            <div className="p-6 border-l-4 border-[#58a6ff] bg-gray-50 rounded-sm">
-              <p className="text-sm opacity-90 mb-4">
-                "Fantastic collaboration, great attention to detail, and timely delivery."
-              </p>
-              <h4 className="text-base font-semibold">Alice Johnson</h4>
-              <p className="text-sm opacity-70">Product Manager, Some Company</p>
-            </div>
-
-            {/* Add more testimonials as needed */}
-          </div>
-        </section>
+        <OffersSection></OffersSection>
+        <ProjectsSection></ProjectsSection>
+        <TestimonialsSection></TestimonialsSection>
 
 
         <section
           id="contact"
-          className="py-24 h-screen px-8 lg:px-24 bg-white text-gray-900 font-sans"
+          className="py-24 px-8 lg:px-24 bg-white text-gray-900 font-sans"
         >
           {/* Section Title */}
           <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
@@ -345,6 +140,9 @@ export default function Home() {
               </h3>
               <p className="text-sm opacity-70 max-w-xs">
                 Web design simple, rapide et efficace. Minimal, structured, precise.
+              </p>
+              <p className="text-sm opacity-70 max-w-xs">
+                Swiss made 🧀
               </p>
             </div>
 
