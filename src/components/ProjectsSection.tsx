@@ -10,7 +10,7 @@ export default function ProjectsSection() {
   {/* Section Title */}
   <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
     <sup className="text-base align-super">2</sup>
-    <span>Projects</span>
+    <span>Projets</span>
   </h2>
 
   {/* Divider line */}
@@ -18,29 +18,29 @@ export default function ProjectsSection() {
 
   {/* Subtitle */}
   <p className="text-lg opacity-80 max-w-xl leading-relaxed mb-12">
-    Here are some of the websites I’ve designed and developed.
+    Voici quelques-uns des sites que j’ai conçus et développés.
   </p>
 
   {/* Projects Grid */}
   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
     {[
       {
-        title: "Project One",
-        description: "Brief description of this project and what I contributed.",
-        image: "/images/project1.jpg",
+        title: "Babybubbles.ch",
+        description: "Site vitrine",
+        image: "/baby-bubbles.png",
         link: "https://example1.com",
       },
       {
-        title: "Project Two",
-        description: "Brief description of this project and what I contributed.",
-        image: "/images/project2.jpg",
-        link: "https://example2.com",
+        title: "ACTS Taekwondo Crissier",
+        description: "Site officiel du club de taekwondo de Crissier",
+        image: "/ACTS.png",
+        link: "https://acts-crissier.ch",
       },
       {
-        title: "Project Three",
-        description: "Brief description of this project and what I contributed.",
-        image: "/images/project3.jpg",
-        link: "https://example3.com",
+        title: "Poster Scientifique",
+        description: "Site poster pour un projet de recherche scientifique",
+        image: "/zebrafish.png",
+        link: "https://digitalposterbachmannlab.netlify.app/",
       },
     ].map((project, i) => (
       <a
@@ -55,7 +55,7 @@ export default function ProjectsSection() {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+            className="w-full h-full object-cover transition-transform duration-500 "
           />
         </div>
 

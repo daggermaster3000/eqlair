@@ -45,7 +45,7 @@ export default function Home() {
       </style>
 
       {/* Full-screen animated Lightning background */}
-      <Lightning hue={228} speed={0.5} intensity={1.5} size={0.5} />
+      <Lightning hue={228} speed={1.5} intensity={1.5} size={0.5} />
 
       {/* Main content container: fill screen, relative for z-index */}
       <div className="relative z-10 min-h-screen backdrop-blur-md text-white bg-[#1c2c45ff]/80">
@@ -59,18 +59,18 @@ export default function Home() {
 
 
 
-        <OffersSection></OffersSection>
+        <OffersSection ></OffersSection>
         <ProjectsSection></ProjectsSection>
-        <TestimonialsSection></TestimonialsSection>
+        {/* <TestimonialsSection></TestimonialsSection> */}
 
 
         <section
           id="contact"
-          className="py-24 px-8 lg:px-24 bg-white text-gray-900 font-sans"
+          className="py-24 px-8 lg:px-24 bg-neutral-90/80 text-white font-sans"
         >
           {/* Section Title */}
           <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
-            <sup className="text-base align-super">4</sup>
+            <sup className="text-base align-super">3</sup>
             <span>Contact</span>
           </h2>
 
@@ -79,11 +79,11 @@ export default function Home() {
 
           {/* Subtitle */}
           <p className="text-lg opacity-80 max-w-xl leading-relaxed mb-12">
-            Let’s connect and make something amazing together.
+            Créons ensemble quelque chose d'exceptionnel.
           </p>
 
           {/* Contact Form */}
-          <form className="max-w-xl space-y-6">
+          <form className="max-w-xl  space-y-6">
             <div>
               <label className="block mb-2 text-sm font-medium" htmlFor="name">
                 Name
@@ -139,7 +139,7 @@ export default function Home() {
                 EQlair<span className="text-[#58a6ff]">.</span>
               </h3>
               <p className="text-sm opacity-70 max-w-xs">
-                Web design simple, rapide et efficace. Minimal, structured, precise.
+                Web design simple, rapide et efficace.
               </p>
               <p className="text-sm opacity-70 max-w-xs">
                 Swiss made 🧀
@@ -150,15 +150,15 @@ export default function Home() {
             <div className="flex flex-col md:flex-row gap-6 md:gap-12">
               <div className="flex flex-col gap-2">
                 <h4 className="text-sm font-bold tracking-tight mb-1">Services</h4>
-                <a href="#offers" className="text-sm opacity-80 hover:text-[#58a6ff] transition">Web Design</a>
+                <a href="#offres" className="text-sm opacity-80 hover:text-[#58a6ff] transition">Web Design</a>
                 <a href="#contact" className="text-sm opacity-80 hover:text-[#58a6ff] transition">Contact</a>
               </div>
 
-              <div className="flex flex-col gap-2">
+              {/* <div className="flex flex-col gap-2">
                 <h4 className="text-sm font-bold tracking-tight mb-1">Follow</h4>
                 <a href="#" className="text-sm opacity-80 hover:text-[#58a6ff] transition">LinkedIn</a>
                 <a href="#" className="text-sm opacity-80 hover:text-[#58a6ff] transition">Dribbble</a>
-              </div>
+              </div> */}
             </div>
 
           </div>

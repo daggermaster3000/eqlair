@@ -3,7 +3,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 export default function TestimonialsSection() {
   const cardsRef = useRef([]);
@@ -15,7 +15,6 @@ export default function TestimonialsSection() {
       // Set initial overlay state for scroll animation
       gsap.set(overlay, { scaleX: 0, transformOrigin: "left center" });
 
-      
 
       // Hover sweep in
       card.addEventListener("mouseenter", () => {
@@ -67,7 +66,7 @@ export default function TestimonialsSection() {
   return (
     <section
       id="testimonials"
-      className="flex  flex-col gap-5 px-6 py-24 bg-neutral-90/80"
+      className="flex  flex-col gap-5 px-8 lg:px-24  py-24 bg-neutral-90/80"
     >
       {/* Section Title */}
       <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
