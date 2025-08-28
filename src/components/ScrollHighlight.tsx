@@ -3,7 +3,12 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-export default function HighlightOnScroll({ text, color = "rgba(7, 146, 226, 1)" }) {
+interface HighlightOnScrollProps {
+  text: string;
+  color?: string;
+}
+
+export default function HighlightOnScroll({ text, color = "rgba(7, 146, 226, 1)" }: HighlightOnScrollProps) {
   const markRef = useRef(null);
 
   useEffect(() => {
