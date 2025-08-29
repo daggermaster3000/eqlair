@@ -28,7 +28,7 @@ export default function ProjectsSection() {
         title: "Babybubbles.ch",
         description: "Site vitrine",
         image: "/baby-bubbles.png",
-        link: "https://example1.com",
+        link: "https://babybubbles.ch",
       },
       {
         title: "ACTS Taekwondo Crissier",
