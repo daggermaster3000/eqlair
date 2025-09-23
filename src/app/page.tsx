@@ -11,7 +11,7 @@ import HeroSection from "@/components/HeroSection";
 import OffersSection from "@/components/OffersSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
-
+import { Instagram } from "lucide-react";
 
 export default function Home() {
 
@@ -137,13 +137,26 @@ export default function Home() {
             <div>
               <h3 className="text-2xl font-extrabold tracking-tight mb-2">
                 EQlair<span className="text-[#58a6ff]">.</span>
+                
               </h3>
+              
               <p className="text-sm opacity-70 max-w-xs">
                 Web design simple, rapide et efficace.
               </p>
               <p className="text-sm opacity-70 max-w-xs">
                 Swiss made 🧀
               </p>
+              <div className="inline-flex flex-col gap-2 mt-3">
+            {/* <h4 className="text-sm font-bold tracking-tight mb-1">Follow</h4> */}
+            <a
+              href="https://instagram.com/yourhandle"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm opacity-80 hover:text-[#58a6ff] transition"
+            >
+              <Instagram size={16} /> Instagram
+            </a>
+          </div>
             </div>
 
             {/* Links */}
@@ -151,6 +164,7 @@ export default function Home() {
               <div className="flex flex-col gap-2">
                 <h4 className="text-sm font-bold tracking-tight mb-1">Services</h4>
                 <a href="#offres" className="text-sm opacity-80 hover:text-[#58a6ff] transition">Web Design</a>
+                <a href="#projects" className="text-sm opacity-80 hover:text-[#58a6ff] transition">Projets</a>
                 <a href="#contact" className="text-sm opacity-80 hover:text-[#58a6ff] transition">Contact</a>
               </div>
 
@@ -160,7 +174,7 @@ export default function Home() {
                 <a href="#" className="text-sm opacity-80 hover:text-[#58a6ff] transition">Dribbble</a>
               </div> */}
             </div>
-
+            
           </div>
 
           {/* Bottom bar */}
