@@ -18,7 +18,7 @@ export default function ProjectsSection() {
 
   {/* Subtitle */}
   <p className="text-lg opacity-80 max-w-xl leading-relaxed mb-12">
-    Voici quelques-uns des sites que j’ai conçus et développés.
+    Voici quelques-uns des sites que nous avons conçus et développés.
   </p>
 
   {/* Projects Grid */}

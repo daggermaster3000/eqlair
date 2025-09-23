@@ -86,12 +86,12 @@ export default function Home() {
           <form className="max-w-xl  space-y-6">
             <div>
               <label className="block mb-2 text-sm font-medium" htmlFor="name">
-                Name
+                Nom
               </label>
               <input
                 type="text"
                 id="name"
-                placeholder="Your name"
+                placeholder="Votre Nom"
                 className="w-full border-b border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
               />
             </div>
@@ -103,7 +103,7 @@ export default function Home() {
               <input
                 type="email"
                 id="email"
-                placeholder="you@example.com"
+                placeholder="vous@exemple.com"
                 className="w-full border-b border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
               />
             </div>
@@ -114,7 +114,7 @@ export default function Home() {
               </label>
               <textarea
                 id="message"
-                placeholder="Your message"
+                placeholder="Votre Message"
                 rows={1}
                 className="w-full border-b border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition resize-none"
               />
@@ -124,7 +124,7 @@ export default function Home() {
               type="submit"
               className="bg-[#58a6ff] text-white rounded-sm px-6 py-3 font-medium text-lg hover:bg-[#3a78d8] transition-colors duration-300"
             >
-              Send Message
+              Envoyer
             </button>
           </form>
         </section>
