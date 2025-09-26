@@ -6,10 +6,10 @@ export default function HeroSection() {
 
   return (
 
-        <section className="flex flex-col justify-center items-start h-screen px-12 lg:px-24 relative bg-white/80 text-gray-900 font-sans">
+        <section className="flex flex-col justify-center items-start h-screen px-12 lg:px-24 relative bg-white text-[#1c2c45ff] font-sans">
           {/* Hero Title */}
 
-          <h1 className="text-5xl sm:text-7xl font-extrabold mb-4 tracking-tight">
+          <h1 className="text-7xl sm:text-7xl font-extrabold mb-4 tracking-tight">
             EQlair<span className="text-[#58a6ff]">.</span>
           </h1>
 
@@ -19,11 +19,11 @@ export default function HeroSection() {
             delay={150}
             animateBy="words"
             direction="top"
-            className="text-2xl mb-6 max-w-lg leading-snug"
+            className="text-2xl mb-6 max-w-lg leading-snug hero"
           />
 
           {/* Divider line */}
-          <div className="w-20 h-1 bg-[#58a6ff] mb-8"></div>
+          {/* <div className="w-20 h-1 bg-[#58a6ff] mb-8"></div> */}
 
           {/* Call to Action */}
           <button

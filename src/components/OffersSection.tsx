@@ -1,86 +1,64 @@
 "use client";
 
-export default function OffersSection() {
-
+export default function MissionsSection() {
   return (
-
     <section
-      id="offres"
-      className="flex flex-col lg:px-24  gap-5 px-6 py-24 bg-neutral-90/80 text-white"
+      id="missions"
+      className="flex flex-row lg:px-24 gap-5 px-6 py-24 h-screen text-white bg-[#1c2c45ff]"
     >
-      <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
-        <sup className="text-base align-super">1</sup>
-        <span>Nos offres de conception</span>
+      <h2 className="text-6xl italic font-bold mb-12 text-left flex items-start gap-2">
+        <span>Mission</span>
+        <sup className="text-base align-super">01</sup>
       </h2>
-      {/* Divider line */}
-      <div className="w-16 h-1 bg-[#58a6ff] mb-6"></div>
 
-
-      <div className="justify-center mx-auto grid md:grid-cols-3 py-10 gap-10 max-w-6xl w-full">
-        {/* Offer 1 */}
-        <div className="flex flex-col border-t border-neutral-700 pt-6">
-          <span className="text-sm text-neutral-500 mb-2">01</span>
-          <h3 className="text-2xl font-semibold mb-4">Pack Dash</h3>
-          <p className="text-neutral-400 mb-6">
-            Site vitrine rapide, clair et efficace
-            — parfait pour lancer votre
-            activité ou présenter vos services en toute simplicité.
+      <div className="justify-center mx-auto grid md:grid-cols-1 py-10 gap-10 max-w-8xl w-full">
+        {/* Mission 1 */}
+        <div className="flex flex-col border-t pt-6">
+          {/* <span className="text-sm mb-2">01</span> */}
+          <h3 className="text-2xl font-semibold mb-4">Innovation</h3>
+          <p className="mb-6">
+            Créer des expériences web <em>claires</em>, <em>rapides</em> et
+            accessibles — poser des bases solides pour chaque projet.
           </p>
 
-          <ul className="text-neutral-300 text-sm space-y-1 mb-8">
-            <li>• 1 à 3 pages</li>
-            <li>• Design responsive</li>
-            <li>• Livraison en 7 jours</li>
-          </ul>
-          <a
-            href="#contact"
-            className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-          >
-            Demander un devis →
-          </a>
+          {/* <ul className="text-sm space-y-1 mb-8">
+            <li>• Approche centrée utilisateur</li>
+            <li>• Design <em>responsive</em></li>
+            <li>• Respect des délais</li>
+          </ul> */}
         </div>
 
-        {/* Offer 2 */}
-        <div className="flex flex-col border-t border-neutral-700 pt-6">
-          <span className="text-sm text-neutral-500 mb-2">02</span>
-          <h3 className="text-2xl font-semibold mb-4">Pack Lightning</h3>
-          <p className="text-neutral-400 mb-6">
-            Site professionnel optimisé avec animations et intégrations — idéal
-            pour se démarquer et attirer vos clients.
+        {/* Mission 2 */}
+        {/* <div className="flex flex-col border-t pt-6">
+          <span className="text-sm mb-2">02</span>
+          <h3 className="text-2xl font-semibold mb-4">Créativité</h3>
+          <p className="mb-6">
+            Offrir des sites <em>uniques</em> et <em>expressifs</em> —
+            intégrant animations fluides et une identité visuelle forte.
           </p>
-          <ul className="text-neutral-300 text-sm space-y-1 mb-8">
-            <li>• 4 à 6 pages</li>
-            <li>• Animations fluides</li>
+
+          <ul className="text-sm space-y-1 mb-8">
+            <li>• <em>Animations</em> modernes</li>
+            <li>• Cohérence visuelle</li>
             <li>• Optimisation SEO</li>
           </ul>
-          <a
-            href="#contact"
-            className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-          >
-            Demander un devis →
-          </a>
-        </div>
+        </div> */}
 
-        {/* Offer 3 */}
-        <div className="flex flex-col border-t border-neutral-700 pt-6">
-          <span className="text-sm text-neutral-500 mb-2">03</span>
-          <h3 className="text-2xl font-semibold mb-4">Pack Storm</h3>
-          <p className="text-neutral-400 mb-6">
-            Expérience web sur mesure — fonctionnalités avancées,
-            design haut de gamme et accompagnement personnalisé.
+        {/* Mission 3 */}
+        {/* <div className="flex flex-col border-t pt-6">
+          <span className="text-sm mb-2">03</span>
+          <h3 className="text-2xl font-semibold mb-4">Accompagnement</h3>
+          <p className="mb-6">
+            Construire des relations durables — avec un suivi{" "}
+            <em>personnalisé</em> et un support <em>prioritaire</em>.
           </p>
-          <ul className="text-neutral-300 text-sm space-y-1 mb-8">
-            <li>• Pages illimitées</li>
+
+          <ul className="text-sm space-y-1 mb-8">
+            <li>• Conseil stratégique</li>
             <li>• Fonctionnalités sur mesure</li>
-            <li>• Support prioritaire</li>
+            <li>• Support <em>continu</em></li>
           </ul>
-          <a
-            href="#contact"
-            className="text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
-          >
-            Demander un devis →
-          </a>
-        </div>
+        </div> */}
       </div>
     </section>
   );

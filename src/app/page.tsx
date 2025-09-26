@@ -1,7 +1,9 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Lightning from "@/components/Lightning";
-import { NavbarDemo } from "@/components/NavbarDemo";
+import  Navbar  from "@/components/NavbarDemo";
+import Section from '@/components/Section';
 import BlurText from "@/components/BlurText";
 import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import TextTrail from '@/components/TextTrail';
@@ -13,73 +15,99 @@ import ProjectsSection from "@/components/ProjectsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import { Instagram } from "lucide-react";
 
-export default function Home() {
 
+type Theme = 'light' | 'dark';
+
+export default function Home() {
+   const [theme, setTheme] = useState<Theme>('light');
   return (
     <>
       {/* Tailwind + fonts + styles */}
       <script src="https://cdn.tailwindcss.com"></script>
       <style>
         {`
-          @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
-          body {
-            font-family:  'Space Grotesk', sans-serif;
-            background-color: #1c2c45ff;
-          }
-          .font-sans {
-            font-family: 'Space Grotesk', sans-serif;
-          }
-          .font-mono {
-            font-family: 'Roboto Mono', monospace;
-          }
-          .animate-fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-          }
-          .animate-fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-          }
+          @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+
+body, li {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-: bold;
+  background-color: white;
+  font-size: 1.25rem;
+}
+
+h1, h2, h3, h4, h5, h6, .hero, .nav-text {
+  font-family: 'Merriweather', serif;
+  font-style: italic;
+}
+
+.font-sans {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.font-mono {
+  font-family: 'Roboto Mono', monospace;
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
         `}
       </style>
 
       {/* Full-screen animated Lightning background */}
-      <Lightning hue={228} speed={1.5} intensity={1.5} size={0.5} />
+      {/* <Lightning hue={228} speed={0.5} intensity={0.5} size={1} /> */}
 
       {/* Main content container: fill screen, relative for z-index */}
-      <div className="relative z-10 min-h-screen backdrop-blur-md text-white bg-[#1c2c45ff]/80">
+      <Navbar theme={theme} />
+      <div
+       
+        className="relative z-10 min-h-screen backdrop-blur-md text-white"
+      >
         {/* Your NavbarDemo component */}
-        <NavbarDemo />
+        
 
-
+          <Section id="mission" theme="light" setTheme={setTheme}>
         <HeroSection></HeroSection>
+          </Section>
 
 
 
-
-
+        <Section id="mission" theme="dark" setTheme={setTheme}>
         <OffersSection ></OffersSection>
+        </Section>
+        <Section id="mission" theme="light" setTheme={setTheme}>
         <ProjectsSection></ProjectsSection>
+        </Section>
         {/* <TestimonialsSection></TestimonialsSection> */}
 
 
-        <section
+        <Section
           id="contact"
-          className="py-24 px-8 lg:px-24 bg-neutral-90/80 text-white font-sans"
+          className="py-24 px-8 lg:px-24 text-white font-sans bg-[#1c2c45ff]"
+          theme="dark"
+          setTheme={setTheme}
         >
           {/* Section Title */}
-          <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
-            <sup className="text-base align-super">3</sup>
+          <h2 className="text-6xl font-bold mb-12 text-left flex items-start gap-2">
+            
             <span>Contact</span>
+            <sup className="text-base align-super">03</sup>
           </h2>
 
           {/* Divider line */}
-          <div className="w-16 h-1 bg-[#58a6ff] mb-6"></div>
+          {/* <div className="w-16 h-1 bg-[#ffffff] mb-6"></div> */}
 
           {/* Subtitle */}
-          <p className="text-lg opacity-80 max-w-xl leading-relaxed mb-12">
-            Créons ensemble quelque chose d'exceptionnel.
+          <p className=" max-w-xl  mb-12">
+            Créons ensemble quelque chose d'<em>exceptionnel</em>.
           </p>
 
           {/* Contact Form */}
@@ -92,7 +120,7 @@ export default function Home() {
                 type="text"
                 id="name"
                 placeholder="Votre Nom"
-                className="w-full border-b border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
+                className="w-full border-b  rounded-sm px-4 py-3  focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
               />
             </div>
 
@@ -104,7 +132,7 @@ export default function Home() {
                 type="email"
                 id="email"
                 placeholder="vous@exemple.com"
-                className="w-full border-b border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
+                className="w-full border-b rounded-sm px-4 py-3  focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
               />
             </div>
 
@@ -116,7 +144,7 @@ export default function Home() {
                 id="message"
                 placeholder="Votre Message"
                 rows={1}
-                className="w-full border-b border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition resize-none"
+                className="w-full border-b  rounded-sm px-4 py-3 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition resize-none"
               />
             </div>
 
@@ -127,7 +155,7 @@ export default function Home() {
               Envoyer
             </button>
           </form>
-        </section>
+        </Section>
 
 
         <footer className="bg-white text-gray-900 font-sans py-12 px-8 lg:px-24 border-t border-gray-200">
