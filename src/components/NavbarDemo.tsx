@@ -7,7 +7,6 @@ import {
   NavItems,
   MobileNav,
   NavbarLogo,
-  NavbarButton,
   MobileNavHeader,
   MobileNavToggle,
   MobileNavMenu,
@@ -15,12 +14,23 @@ import {
 
 export function NavbarDemo() {
   const navItems = [
-    { name: "Offres", link: "#offres" },
+    { name: "Mission", link: "#missions" },
     { name: "Projets", link: "#projects" },
     { name: "Contact", link: "#contact" },
   ];
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    targetId: string
+  ) => {
+    e.preventDefault();
+    const target = document.querySelector(targetId);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="relative w-full z-50 sticky top-0">
@@ -28,11 +38,19 @@ export function NavbarDemo() {
         {/* Desktop Navigation */}
         <NavBody>
           <NavbarLogo />
-          <NavItems items={navItems} />
-          <div className="flex items-center gap-4">
-            
-            {/* <NavbarButton variant="primary">Book a call</NavbarButton> */}
+          <div className="flex gap-6">
+            {navItems.map((item, idx) => (
+              <a
+                key={`desktop-link-${idx}`}
+                href={item.link}
+                onClick={(e) => handleScroll(e, item.link)}
+                className="relative text-white hover:text-[#58a6ff] transition-colors"
+              >
+                {item.name}
+              </a>
+            ))}
           </div>
+          <div className="flex items-center gap-4"></div>
         </NavBody>
 
         {/* Mobile Navigation */}
@@ -53,26 +71,18 @@ export function NavbarDemo() {
               <a
                 key={`mobile-link-${idx}`}
                 href={item.link}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="relative text-neutral-600 dark:text-neutral-300"
+                onClick={(e) => {
+                  handleScroll(e, item.link);
+                  setIsMobileMenuOpen(false);
+                }}
+                className="relative text-neutral-600 dark:text-white hover:text-[#58a6ff] transition-colors"
               >
                 <span className="block">{item.name}</span>
               </a>
             ))}
-            <div className="flex w-full flex-col gap-4">
-              {/* <NavbarButton
-                onClick={() => setIsMobileMenuOpen(false)}
-                variant="primary"
-                className="w-full"
-              >
-                Login
-              </NavbarButton> */}
-              
-            </div>
           </MobileNavMenu>
         </MobileNav>
       </Navbar>
-      
     </div>
   );
 }

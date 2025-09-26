@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useState } from "react";
 import Lightning from "@/components/Lightning";
 import { NavbarDemo } from "@/components/NavbarDemo";
 import BlurText from "@/components/BlurText";
@@ -12,8 +13,44 @@ import OffersSection from "@/components/OffersSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import { Instagram } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function Home() {
+const formRef = useRef<HTMLFormElement>(null);
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+
+  const sendEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formRef.current) return;
+
+    setLoading(true);
+
+    try {
+      // 1. Send to you
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!, // service ID
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_CONTACT!, // template for you
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY! // public key
+      );
+
+      // 2. Send confirmation to user
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_CONFIRM!, // template for confirmation
+        formRef.current,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+      );
+
+      setSuccess(true);
+      formRef.current.reset();
+    } catch (err) {
+      console.error("EmailJS error:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return (
     <>
@@ -26,6 +63,7 @@ export default function Home() {
             font-family:  'Space Grotesk', sans-serif;
             background-color: #1c2c45ff;
           }
+         
           .font-sans {
             font-family: 'Space Grotesk', sans-serif;
           }
@@ -65,69 +103,82 @@ export default function Home() {
 
 
         <section
-          id="contact"
-          className="py-24 px-8 lg:px-24 bg-neutral-90/80 text-white font-sans"
+      id="contact"
+      className="py-24 px-8 lg:px-24 bg-neutral-90/80 text-white font-sans"
+    >
+      <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
+        <sup className="text-base align-super">3</sup>
+        <span>Contact</span>
+      </h2>
+
+      <div className="w-16 h-1 bg-[#58a6ff] mb-6"></div>
+
+      <p className="text-lg max-w-xl leading-relaxed mb-12">
+        Créons ensemble quelque chose d'exceptionnel.
+      </p>
+
+      <form
+        ref={formRef}
+        onSubmit={sendEmail}
+        className="max-w-xl space-y-6"
+      >
+        <div>
+          <label className="block mb-2 text-sm font-medium" htmlFor="name">
+            Nom
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="from_name"
+            placeholder="Votre Nom"
+            required
+            className="w-full border-b border-white rounded-sm px-4 py-3 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
+          />
+        </div>
+
+        <div>
+          <label className="block mb-2 text-sm font-medium" htmlFor="email">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="from_email"
+            placeholder="vous@exemple.com"
+            required
+            className="w-full border-b border-white rounded-sm px-4 py-3 text-white focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
+          />
+        </div>
+
+        <div>
+          <label className="block mb-2 text-sm font-medium" htmlFor="message">
+            Message
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Votre Message"
+            rows={3}
+            required
+            className="w-full border-b border-white rounded-sm px-4 py-3 text-white focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition resize-none"
+          />
+        </div>
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="bg-[#58a6ff] text-white rounded-sm px-6 py-3 font-medium text-lg hover:bg-[#3a78d8] transition-colors duration-300 disabled:opacity-50"
         >
-          {/* Section Title */}
-          <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
-            <sup className="text-base align-super">3</sup>
-            <span>Contact</span>
-          </h2>
+          {loading ? "Envoi..." : "Envoyer"}
+        </button>
 
-          {/* Divider line */}
-          <div className="w-16 h-1 bg-[#58a6ff] mb-6"></div>
-
-          {/* Subtitle */}
-          <p className="text-lg opacity-80 max-w-xl leading-relaxed mb-12">
-            Créons ensemble quelque chose d'exceptionnel.
+        {success && (
+          <p className="text-green-400 mt-4">
+            ✅ Merci ! Votre message a été envoyé.
           </p>
-
-          {/* Contact Form */}
-          <form className="max-w-xl  space-y-6">
-            <div>
-              <label className="block mb-2 text-sm font-medium" htmlFor="name">
-                Nom
-              </label>
-              <input
-                type="text"
-                id="name"
-                placeholder="Votre Nom"
-                className="w-full border-b border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
-              />
-            </div>
-
-            <div>
-              <label className="block mb-2 text-sm font-medium" htmlFor="email">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                placeholder="vous@exemple.com"
-                className="w-full border-b border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
-              />
-            </div>
-
-            <div>
-              <label className="block mb-2 text-sm font-medium" htmlFor="message">
-                Message
-              </label>
-              <textarea
-                id="message"
-                placeholder="Votre Message"
-                rows={1}
-                className="w-full border-b border-gray-300 rounded-sm px-4 py-3 text-gray-900 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition resize-none"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="bg-[#58a6ff] text-white rounded-sm px-6 py-3 font-medium text-lg hover:bg-[#3a78d8] transition-colors duration-300"
-            >
-              Envoyer
-            </button>
-          </form>
-        </section>
+        )}
+      </form>
+    </section>
 
 
         <footer className="bg-white text-gray-900 font-sans py-12 px-8 lg:px-24 border-t border-gray-200">
@@ -149,7 +200,7 @@ export default function Home() {
               <div className="inline-flex flex-col gap-2 mt-3">
             {/* <h4 className="text-sm font-bold tracking-tight mb-1">Follow</h4> */}
             <a
-              href="https://instagram.com/yourhandle"
+              href="https://www.instagram.com/eqlair.studio/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm opacity-80 hover:text-[#58a6ff] transition"
@@ -179,7 +230,7 @@ export default function Home() {
 
           {/* Bottom bar */}
           <div className="mt-12 text-sm text-gray-500 opacity-70 text-center">
-            © {new Date().getFullYear()} EQlair. All rights reserved.
+            © {new Date().getFullYear()} EQlair.
           </div>
         </footer>
 
