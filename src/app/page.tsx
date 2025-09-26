@@ -107,7 +107,7 @@ const formRef = useRef<HTMLFormElement>(null);
       className="py-24 px-8 lg:px-24 bg-neutral-90/80 text-white font-sans"
     >
       <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
-        <sup className="text-base align-super">3</sup>
+        <sup className="text-base align-super">03</sup>
         <span>Contact</span>
       </h2>
 

@@ -9,7 +9,7 @@ export default function ProjectsSection() {
 >
   {/* Section Title */}
   <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
-    <sup className="text-base align-super">2</sup>
+    <sup className="text-base align-super">02</sup>
     <span>Projets</span>
   </h2>
 
