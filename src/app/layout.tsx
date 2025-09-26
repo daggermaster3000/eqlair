@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next"
 import "./globals.css";
+import Script from "next/script";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -62,6 +63,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <Script
+          src="https://eqlair-analytics.vercel.app/script.js"
+          data-website-id="6cb9035b-35e7-4938-a373-339b0f1a3d62"
+          strategy="afterInteractive" // ensures script loads after hydration
+        />
+      </head>
       
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
