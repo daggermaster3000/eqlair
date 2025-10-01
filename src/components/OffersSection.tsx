@@ -16,17 +16,22 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
   id="missions"
   className="flex flex-col lg:px-24 gap-5 px-6 py-24 bg-neutral-90/80 text-white"
 >
-  <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
-    <sup className="text-base align-super">01</sup>
+  <h2 className="text-4xl font-bold mb-12 text-left flex items-start">
     <span>Notre mission</span>
   </h2>
 
   {/* Divider line */}
-  <div className="w-16 h-1 bg-[#58a6ff] mb-6"></div>
+  <div className="w-16 h-1 mb-6" style={{ backgroundColor: 'var(--brand-accent)' }}></div>
 
   <div className="justify-center mx-auto grid md:grid-cols-3 py-10 gap-10 max-w-6xl w-full">
     {/* Mission 1 */}
-    <div className="flex flex-col border-t pt-6">
+    <motion.div
+      className="flex flex-col border-t pt-6"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.6, ease: 'easeOut' }}
+    >
       <span className="text-sm mb-2">01</span>
       <h3 className="text-2xl font-semibold mb-4">Clarté & Impact</h3>
       <p className="mb-6">
@@ -38,10 +43,16 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         <li>• Hiérarchie visuelle optimisée</li>
         <li>• Expérience utilisateur intuitive</li>
       </ul>
-    </div>
+    </motion.div>
 
     {/* Mission 2 */}
-    <div className="flex flex-col border-t pt-6">
+    <motion.div
+      className="flex flex-col border-t pt-6"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay: 0.08 }}
+    >
       <span className="text-sm mb-2">02</span>
       <h3 className="text-2xl font-semibold mb-4">Performance & Visibilité</h3>
       <p className="mb-6">
@@ -54,10 +65,16 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         <li>• Vitesse de chargement garantie</li>
         <li>• Compatible tous supports</li>
       </ul>
-    </div>
+    </motion.div>
 
     {/* Mission 3 */}
-    <div className="flex flex-col border-t pt-6">
+    <motion.div
+      className="flex flex-col border-t pt-6"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.6, ease: 'easeOut', delay: 0.16 }}
+    >
       <span className="text-sm mb-2">03</span>
       <h3 className="text-2xl font-semibold mb-4">Créativité & Sur-mesure</h3>
       <p className="mb-6">
@@ -69,7 +86,7 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         <li>• Identité visuelle cohérente</li>
         <li>• Fonctionnalités adaptées à vos besoins</li>
       </ul>
-    </div>
+    </motion.div>
     
   </div>
   <div className="flex justify-center mt-12">
@@ -78,7 +95,8 @@ const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
           onClick={handleScroll}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="bg-[#58a6ff] text-white rounded-md px-8 py-4 font-medium text-lg shadow-md hover:bg-[#3a78d8] transition-colors duration-300"
+          className="text-white rounded-md px-8 py-4 font-medium text-lg shadow-md transition-colors duration-300"
+          style={{ backgroundColor: 'var(--brand-accent)' }}
         >
           Demander un devis →
         </motion.a>

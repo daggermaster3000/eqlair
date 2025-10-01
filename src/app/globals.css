@@ -44,6 +44,11 @@
 }
 
 :root {
+  /* Brand tokens (from existing inline styles in page.tsx) */
+  --brand-bg: #1c2c45ff; /* page background */
+  --brand-accent: #58a6ff; /* primary accent */
+  --brand-accent-hover: #3a78d8; /* accent hover */
+  --brand-text-on-dark: #ffffff; /* text on dark */
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -118,5 +123,26 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-color: var(--brand-bg);
   }
+}
+
+/* Utilities migrated from inline styles in page.tsx */
+.font-sans {
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.font-mono {
+  font-family: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.animate-fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
 }

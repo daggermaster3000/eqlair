@@ -54,39 +54,13 @@ const formRef = useRef<HTMLFormElement>(null);
 
   return (
     <>
-      {/* Tailwind + fonts + styles */}
-      <script src="https://cdn.tailwindcss.com"></script>
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Roboto+Mono:wght@400;500;700&display=swap');
-          body {
-            font-family:  'Space Grotesk', sans-serif;
-            background-color: #1c2c45ff;
-          }
-         
-          .font-sans {
-            font-family: 'Space Grotesk', sans-serif;
-          }
-          .font-mono {
-            font-family: 'Roboto Mono', monospace;
-          }
-          .animate-fade-in-up {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-          }
-          .animate-fade-in-up.visible {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        `}
-      </style>
+      {/* Fonts and utilities are defined globally in globals.css via next/font */}
 
       {/* Full-screen animated Lightning background */}
       <Lightning hue={228} speed={1.5} intensity={1.5} size={0.5} />
 
       {/* Main content container: fill screen, relative for z-index */}
-      <div className="relative z-10 min-h-screen backdrop-blur-md text-white bg-[#1c2c45ff]/80">
+      <div className="relative z-10 min-h-screen backdrop-blur-md text-white" style={{ backgroundColor: 'color-mix(in oklab, var(--brand-bg) 80%, transparent)' }}>
         {/* Your NavbarDemo component */}
         <NavbarDemo />
 
@@ -106,12 +80,11 @@ const formRef = useRef<HTMLFormElement>(null);
       id="contact"
       className="py-24 px-8 lg:px-24 bg-neutral-90/80 text-white font-sans"
     >
-      <h2 className="text-4xl font-bold mb-12 text-left flex items-start gap-2">
-        <sup className="text-base align-super">03</sup>
+      <h2 className="text-4xl font-bold mb-12 text-left flex items-start">
         <span>Contact</span>
       </h2>
 
-      <div className="w-16 h-1 bg-[#58a6ff] mb-6"></div>
+      <div className="w-16 h-1 mb-6" style={{ backgroundColor: 'var(--brand-accent)' }}></div>
 
       <p className="text-lg max-w-xl leading-relaxed mb-12">
         Créons ensemble quelque chose d'exceptionnel.
@@ -132,7 +105,12 @@ const formRef = useRef<HTMLFormElement>(null);
             name="from_name"
             placeholder="Votre Nom"
             required
-            className="w-full border-b border-white rounded-sm px-4 py-3 focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
+            className="w-full border-b border-white rounded-sm px-4 py-3 focus:outline-none focus:ring-0 transition"
+            style={{
+              '--tw-ring-color': 'var(--brand-accent)',
+              '--tw-border-opacity': '1',
+              borderColor: 'var(--brand-accent)'
+            } as React.CSSProperties}
           />
         </div>
 
@@ -146,7 +124,12 @@ const formRef = useRef<HTMLFormElement>(null);
             name="from_email"
             placeholder="vous@exemple.com"
             required
-            className="w-full border-b border-white rounded-sm px-4 py-3 text-white focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition"
+            className="w-full border-b border-white rounded-sm px-4 py-3 text-white focus:outline-none focus:ring-0 transition"
+            style={{
+              '--tw-ring-color': 'var(--brand-accent)',
+              '--tw-border-opacity': '1',
+              borderColor: 'var(--brand-accent)'
+            } as React.CSSProperties}
           />
         </div>
 
@@ -160,14 +143,22 @@ const formRef = useRef<HTMLFormElement>(null);
             placeholder="Votre Message"
             rows={3}
             required
-            className="w-full border-b border-white rounded-sm px-4 py-3 text-white focus:outline-none focus:ring-0 focus:ring-[#58a6ff] focus:border-[#58a6ff] transition resize-none"
+            className="w-full border-b border-white rounded-sm px-4 py-3 text-white focus:outline-none focus:ring-0 transition resize-none"
+            style={{
+              '--tw-ring-color': 'var(--brand-accent)',
+              '--tw-border-opacity': '1',
+              borderColor: 'var(--brand-accent)'
+            } as React.CSSProperties}
           />
         </div>
 
         <button
           type="submit"
           disabled={loading}
-          className="bg-[#58a6ff] text-white rounded-sm px-6 py-3 font-medium text-lg hover:bg-[#3a78d8] transition-colors duration-300 disabled:opacity-50"
+          className="text-white rounded-sm px-6 py-3 font-medium text-lg transition-colors duration-300 disabled:opacity-50"
+          style={{ backgroundColor: 'var(--brand-accent)' }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--brand-accent-hover)')}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--brand-accent)')}
         >
           {loading ? "Envoi..." : "Envoyer"}
         </button>
