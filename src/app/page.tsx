@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import Lightning from "@/components/Lightning";
 import { NavbarDemo } from "@/components/NavbarDemo";
 import BlurText from "@/components/BlurText";
@@ -12,6 +12,7 @@ import HeroSection from "@/components/HeroSection";
 import OffersSection from "@/components/OffersSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import LoadingScreen from "@/components/LoadingScreen";
 import { Instagram } from "lucide-react";
 import emailjs from "@emailjs/browser";
 
@@ -19,6 +20,15 @@ export default function Home() {
 const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+  const [isLoadingComplete, setIsLoadingComplete] = useState(false);
+
+  // Add a minimum loading time for better UX
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      // This ensures the loading screen shows for at least 3 seconds
+    }, 3000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const sendEmail = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -54,6 +64,11 @@ const formRef = useRef<HTMLFormElement>(null);
 
   return (
     <>
+      {/* Loading Screen */}
+      {!isLoadingComplete && (
+        <LoadingScreen onComplete={() => setIsLoadingComplete(true)} />
+      )}
+
       {/* Fonts and utilities are defined globally in globals.css via next/font */}
 
       {/* Full-screen animated Lightning background */}

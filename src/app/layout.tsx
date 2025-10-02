@@ -18,6 +18,11 @@ export const metadata: Metadata = {
   title: "Eqlair Studio - Création Site Web Lausanne | Agence Web Design Vaud",
   description:
     "Agence web design à Lausanne spécialisée dans la création de sites internet modernes et responsives. Développement web sur mesure pour entreprises dans le canton de Vaud. Devis gratuit.",
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
+  },
   keywords: [
     "création site web Lausanne",
     "agence web Lausanne",
